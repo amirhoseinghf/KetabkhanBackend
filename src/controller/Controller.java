@@ -103,6 +103,19 @@ public class Controller {
         return "";
     }
 
+    private String add_reading(String id) throws IOException, ClassNotFoundException {
+        //TODO: Implement this.
+        FileInputStream fis = new FileInputStream("src/database/users.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        User user = (User) ois.readObject();
+        System.out.println(id);
+        user.readingIds.add(id);
+        FileOutputStream fos = new FileOutputStream("src/database/users.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(user);
+        return "Done";
+    }
+
 
     public String start(String command, String data) throws IOException, ClassNotFoundException {
 
@@ -113,6 +126,7 @@ public class Controller {
             case "get_user_info": return get_user_info();
             case "add_credit": return add_credit(data);
             case "save_info": return save_info(data);
+            case "add_reading": return add_reading(data);
         }
         return "";
     }

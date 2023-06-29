@@ -9,6 +9,7 @@ public class User implements Serializable {
     double credit = 0;
     String password;
     List<String> booksIds = new ArrayList<>();
+    List<String> readingIds = new ArrayList<>();
 
     public User(String email, String userName, String password, String name, String familyName, String profileImageUrl, double credit){
         this.email = email;

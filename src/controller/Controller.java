@@ -41,7 +41,7 @@ public class Controller {
         ObjectInputStream ois = new ObjectInputStream(fis);
         User user1 = (User) ois.readObject();
         HashMap<String,String> dataMap = Convertor.stringToMap(data);
-        System.out.println("FSF");
+//        System.out.println("FSF");
 //        Path src = Paths.get("src/database/users.txt");
 //        List<String> list = Files.readAllLines(src);
 //        HashMap<String, String> databaseMap = Convertor.stringListToMap(list);
@@ -61,7 +61,7 @@ public class Controller {
         user2.credit -= (double) map.get("price");
         FileOutputStream f1 = new FileOutputStream("src/database/users.txt");
         ObjectOutputStream out = new ObjectOutputStream(f1);
-        System.out.println(map);
+//        System.out.println(map);
         out.writeObject(user2);
         return "Hooray!";
     }
@@ -91,12 +91,14 @@ public class Controller {
     private String save_info(String data) throws IOException, ClassNotFoundException {
         Gson gson = new Gson();
         Map<String, Object> map = gson.fromJson(data, HashMap.class);
-        System.out.println(map);
+//        System.out.println(map);
         FileInputStream fis = new FileInputStream("src/database/users.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         User user = (User) ois.readObject();
         user.name = (String) map.get("name");
         user.familyName = (String) map.get("familyName");
+        user.profileImgPath = (String) map.get("profileImgPath");
+//        System.out.println(user.profileImgPath);
         FileOutputStream fos = new FileOutputStream("src/database/users.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(user);
@@ -108,7 +110,7 @@ public class Controller {
         FileInputStream fis = new FileInputStream("src/database/users.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         User user = (User) ois.readObject();
-        System.out.println(id);
+//        System.out.println(id);
         user.readingIds.add(id);
         FileOutputStream fos = new FileOutputStream("src/database/users.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);

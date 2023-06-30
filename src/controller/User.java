@@ -10,6 +10,7 @@ public class User implements Serializable {
     String password;
     List<String> booksIds = new ArrayList<>();
     List<String> readingIds = new ArrayList<>();
+    String profileImgPath;
 
     public User(String email, String userName, String password, String name, String familyName, String profileImageUrl, double credit){
         this.email = email;
@@ -17,7 +18,7 @@ public class User implements Serializable {
         this.password = password;
         this.name = name;
         this.familyName = familyName;
-        this.profileImageUrl = profileImageUrl;
+//        this.profileImageUrl = profileImageUrl;
         this.credit = credit;
     }
 }
